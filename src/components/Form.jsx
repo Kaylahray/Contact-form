@@ -28,6 +28,8 @@ const Form = () => {
   const [isSubmit, setIsSubmit] = useState(false);
 
   const handleChange = (e) => {
+    if (error) setFormError("");
+    if (errors) setError(null);
     const newData = { ...values, [e.target.name]: e.target.value };
     setValues(newData);
     console.log(newData);
@@ -90,7 +92,6 @@ const Form = () => {
           status="error"
           w="70%"
           m="20px auto"
-          // alignSelf={"center"}
           textAlign={"center"}
           fontSize={"16px"}
         >
@@ -148,7 +149,6 @@ const Form = () => {
           </FormLabel>
           <Input
             variant={"flushed"}
-            // border={"1px solid white"}
             type="text"
             name="subject"
             onChange={handleChange}
